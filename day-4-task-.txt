@@ -1,0 +1,78 @@
+//////////////////////////////////////////////////////////////
+///use rest country,print: name,region,subregion,population///
+/////////////////////////////////////////////////////////////
+
+var getcountryrequest=new XMLHttpRequest();
+getcountryrequest.open("GET","https://restcountries.com/v3.1/all");
+getcountryrequest.send();
+getcountryrequest.onload=function(){
+    var data=JSON.parse( this.responseText);
+    printData(data);
+}
+function printData(data){
+    if(data.length >0){
+        for(let i=0;i<data.length;i++){
+            const{name={},region=" ",subregion=" ",population=0}=data[i];
+            console.log(name.common,region,subregion,population);
+        }
+    }
+}
+//////////////////////////////////////
+///use rest country,print flags//////
+////////////////////////////////////
+var getcountryrequest=new XMLHttpRequest();
+
+getcountryrequest.open("GET","https://restcountries.com/v3.1/all");
+
+getcountryrequest.send();
+
+getcountryrequest.onload=function(){
+  
+  var data=JSON.parse( this.response);
+
+    printData(data);
+
+}
+
+function printData(data){
+
+    if(data.length >0){
+
+        for(let i=0;i<data.length;i++){
+
+            const{flags={}}=data[i];
+
+            console.log(flags.svg);
+
+        }
+    
+}
+
+}
+
+///////////////////////////////
+///object combarison//////////
+/////////////////////////////
+var a={
+"name":"person 1",
+"age":24
+
+}
+
+var b={
+"age":24,
+"name":"person 1"
+}
+
+if(JSON.Stringify(a)===JSON.Strigify(b)){
+console.log("false")
+}else{
+console.log("true")
+}
+
+
+
+
+
+
+
